@@ -1,0 +1,24 @@
+CREATE DATABASE DB_LINKS;
+
+USE DB_LINKS;
+
+--Tabla de Usuarios
+CREATE TABLE users(
+    UserID INT NOT NULL AUTO_INCREMENT,
+    Username VARCHAR(15) NOT NULL,
+    Password VARCHAR(60) NOT NULL,
+    FullName VARCHAR(100) NOT NULL,
+    PRIMARY KEY (UserID)
+);
+
+--Tabla de Links
+CREATE TABLE links(
+    LinkID INT NOT NULL AUTO_INCREMENT,
+    Title VARCHAR(150) NOT NULL,
+    Url VARCHAR(255) NOT NULL,
+    Description TEXT,
+    User_ID INT,
+    Created_At TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(LinkID),
+    CONSTRAINT fk_user FOREIGN KEY(User_ID) REFERENCES users(UserID) 
+);
