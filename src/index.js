@@ -15,7 +15,7 @@ const app = express();
 require('./lib/passport');
 
 //Settings
-app.set('port', process.env.PORT || 3000); //Usa el puerto de las variables del sistema o el 3000 en su defecto
+app.set('port', 3000); //Usa el puerto de las variables del sistema o el 3000 en su defecto process.env.PORT ||
 app.set('views', path.join(__dirname, 'views'))
 app.engine('.hbs', exphbs({
     defaultLayout: 'main',
@@ -44,6 +44,7 @@ app.use(passport.session());
 app.use((req, res, next) => {
     app.locals.Success = req.flash('Success')
     app.locals.Message = req.flash('Message')
+    app.locals.User = req.user;
     next();
 });
 
