@@ -8,6 +8,10 @@ CREATE TABLE users(
     Username VARCHAR(15) NOT NULL,
     Password VARCHAR(60) NOT NULL,
     FullName VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) NOT NULL,
+    Provincia VARCHAR(50) NOT NULL,
+    Localidad VARCHAR(50) NOT NULL,
+    Domicilio VARCHAR(100) NOT NULL,
     PRIMARY KEY (UserID)
 );
 
